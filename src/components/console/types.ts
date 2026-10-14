@@ -1,7 +1,19 @@
+/**
+ * Visual presentation mode for the AWS Console experience:
+ * - 'station': Interactive AWS Console workbench with 3D model and active service pane
+ * - 'topology': Cloud architecture graph displaying inter-connected service nodes
+ * - 'stream': Seamless continuous vertical scroll through all website sections
+ */
 export type ViewMode = 'station' | 'topology' | 'stream';
 
+/**
+ * Unique identifiers for each community service node mapped to AWS services.
+ */
 export type ServiceId = 'overview' | 'compute' | 'events' | 'iam' | 's3' | 'cloudwatch' | 'deploy';
 
+/**
+ * Service metadata node representing an AWS Console service card and sidebar link.
+ */
 export interface ServiceNode {
   id: ServiceId;
   label: string;
@@ -13,6 +25,9 @@ export interface ServiceNode {
   color: string; // pastel category accent
 }
 
+/**
+ * Simulated AWS Regional endpoint information with latency telemetry.
+ */
 export interface RegionInfo {
   id: string;
   name: string;
