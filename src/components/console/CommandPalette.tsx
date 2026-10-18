@@ -51,12 +51,18 @@ export default function CommandPalette({
         e.preventDefault();
         if (isOpen) onClose();
       } else if (e.key === 'Escape' && isOpen) {
+        e.preventDefault();
         onClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
+
+  // Reset selection when search query changes
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [query]);
 
   // Focus input on open
   useEffect(() => {
