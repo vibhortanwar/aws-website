@@ -380,8 +380,10 @@ export default function CloudShellDrawer({
               onChange={(e) => setInputVal(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Type command (e.g. teams, events, join, help)..."
-              className="flex-1 bg-transparent text-white font-mono text-xs outline-none placeholder:text-slate-400"
+              className="flex-1 bg-transparent text-white font-mono text-xs outline-none placeholder:text-slate-400 caret-[#E09F67]"
               autoFocus
+              spellCheck={false}
+              autoComplete="off"
             />
             <button
               onClick={() => handleCommand(inputVal)}
