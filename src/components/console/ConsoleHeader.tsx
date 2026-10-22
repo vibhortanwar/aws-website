@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ViewMode, RegionInfo, AWS_REGIONS } from './types';
 import Image from 'next/image';
@@ -33,6 +33,7 @@ export default function ConsoleHeader({
 }: ConsoleHeaderProps) {
   const [selectedRegion, setSelectedRegion] = useState<RegionInfo>(AWS_REGIONS[0]);
   const [isRegionMenuOpen, setIsRegionMenuOpen] = useState(false);
+  const regionMenuRef = useRef<HTMLDivElement>(null);
   const [latencyJitter, setLatencyJitter] = useState(selectedRegion.latency);
 
   // Simulated regional latency jitter
@@ -43,6 +44,18 @@ export default function ConsoleHeader({
     }, 4000);
     return () => clearInterval(interval);
   }, [selectedRegion]);
+
+  // Close region menu on click outside
+  useEffect(() => {
+    if (!isRegionMenuOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (regionMenuRef.current && !regionMenuRef.current.contains(e.target as Node)) {
+        setIsRegionMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isRegionMenuOpen]);
 
   return (
     <header className="sticky top-0 left-0 right-0 z-40 w-full border-b border-white/[0.08] bg-[#0b0d14] backdrop-blur-2xl transition-all duration-300">
@@ -76,7 +89,7 @@ export default function ConsoleHeader({
           </div>
 
           {/* Clean Region Picker Dropdown */}
-          <div className="relative">
+          <div className="relative" ref={regionMenuRef}>
             <button
               onClick={() => setIsRegionMenuOpen(!isRegionMenuOpen)}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-mono bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 transition-colors"
