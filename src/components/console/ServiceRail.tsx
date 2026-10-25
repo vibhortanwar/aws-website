@@ -49,7 +49,8 @@ export default function ServiceRail({
               ? 'bg-white/[0.08] text-white'
               : 'text-slate-400 hover:text-white hover:bg-white/[0.03]'
           }`}
-          aria-label={node.label}
+          aria-label={`${node.label} (${node.awsCode})`}
+          title={`${node.label} [${node.shortcut}] - ${node.description}`}
         >
           {/* AWS Service Vector Badge */}
           <div
