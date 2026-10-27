@@ -143,7 +143,7 @@ export default function TopologyMap({
         </div>
 
         {/* Dynamic SVG Connection Cables in Soft Pastel Tones */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" aria-hidden="true">
           <defs>
             <linearGradient id="cableGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#B8B8D1" stopOpacity="0.6" />
