@@ -102,6 +102,7 @@ export default function CloudShellDrawer({
             <div><span className="text-[#86B398] font-semibold">about</span> : Club mission & faculty leadership</div>
             <div><span className="text-[#86B398] font-semibold">mode [station|topology|stream]</span> : Switch layout</div>
             <div><span className="text-[#86B398] font-semibold">whoami</span> : Display builder identity</div>
+            <div><span className="text-[#86B398] font-semibold">uptime</span> : Check regional cluster uptime</div>
             <div><span className="text-[#86B398] font-semibold">clear</span> : Clear console buffer</div>
           </div>
         </div>
@@ -228,6 +229,12 @@ export default function CloudShellDrawer({
           </div>
         );
       }
+    } else if (cleanCmd === 'uptime' || cleanCmd === 'status') {
+      outputText = (
+        <div className="font-mono text-xs text-slate-300">
+          <span className="text-[#86B398] font-bold">● CLUSTER OPERATIONAL:</span> 99.98% availability across ap-south-1a/b zones.
+        </div>
+      );
     } else if (cleanCmd === 'whoami') {
       outputText = (
         <div className="font-mono text-xs text-[#E09F67]">
