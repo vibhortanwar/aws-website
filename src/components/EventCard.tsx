@@ -25,7 +25,7 @@ const EventCard: React.FC<EventCardProps> = ({
   tag
 }) => {
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" rel="noopener noreferrer" className="block">
     <motion.div
       whileHover={{ y: -8, scale: 1.03 }}
       transition={{ duration: 0.1, ease: "easeOut" }}
@@ -114,4 +114,4 @@ const EventCard: React.FC<EventCardProps> = ({
   );
 };
 
-export default EventCard;
+export default EventCard;
