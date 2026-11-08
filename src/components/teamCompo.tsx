@@ -3,15 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import TiltCard from './TiltCard';
 
-interface teamCard{
-    style: 'secondary' | 'primary',
-    path: string,
-    name: string,
-    description: string,
-    href: string
+export interface TeamCardProps {
+  style: 'secondary' | 'primary';
+  path: string;
+  name: string;
+  description: string;
+  href: string;
 }
 
-export default function TeamComponent({path, name, description, style, href}: teamCard) {
+export default function TeamComponent({ path, name, description, style, href }: TeamCardProps) {
   return (
     <Link href={href} className="block h-full">
       <TiltCard className="h-full">
