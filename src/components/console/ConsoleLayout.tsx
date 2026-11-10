@@ -79,6 +79,18 @@ export default function ConsoleLayout() {
     return () => observer.disconnect();
   }, [currentMode]);
 
+  // Prevent background scroll when CommandPalette is open
+  useEffect(() => {
+    if (isCommandPaletteOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isCommandPaletteOpen]);
+
   return (
     <div className="relative min-h-screen w-full bg-[#0a0b10] text-white flex flex-col selection:bg-[#E09F67]/20 selection:text-[#E09F67]">
       {/* ─── TOP AWS CONSOLE GLOBAL HEADER ─── */}
