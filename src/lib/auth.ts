@@ -26,9 +26,18 @@ export const auth = betterAuth({
   },
 })
 
-// Simple admin check function
-export async function validateAdmin(email: string, password: string) {
-  return email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD
+/**
+ * Simple admin credentials validator for privileged console operations.
+ */
+export async function validateAdmin(email: string, password: string): Promise<boolean> {
+  const adminEmail = process.env.ADMIN_EMAIL;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (!adminEmail || !adminPassword) {
+    return false;
+  }
+
+  return email === adminEmail && password === adminPassword;
 }
 
 export type Session = typeof auth.$Infer.Session
