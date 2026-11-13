@@ -9,7 +9,7 @@ interface StatCounterProps {
   duration?: number
 }
 
-function StatCounter({ end, label, suffix = '', duration = 1000 }: StatCounterProps) {
+function StatCounter({ end, label, suffix = '', duration = 1200 }: StatCounterProps) {
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const countRef = useRef<HTMLDivElement>(null)
@@ -54,7 +54,7 @@ function StatCounter({ end, label, suffix = '', duration = 1000 }: StatCounterPr
 
   return (
     <div ref={countRef} className="flex items-center gap-3 px-8 sm:px-12 whitespace-nowrap">
-      <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#E09F67]">
+      <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#E09F67] tabular-nums font-mono">
         {count}{suffix}
       </span>
       <span className="text-sm sm:text-base text-slate-400 font-medium uppercase tracking-wider">
