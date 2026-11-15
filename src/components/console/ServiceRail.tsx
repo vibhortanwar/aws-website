@@ -87,9 +87,9 @@ export default function ServiceRail({
                 <div className="text-[11px] text-slate-400 truncate">{node.label}</div>
               </div>
 
-              <span className="hidden xl:inline text-[10px] font-mono text-slate-500 flex-shrink-0">
-                {node.shortcut}
-              </span>
+              <kbd className="hidden xl:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] border border-white/10 text-slate-400 group-hover:text-slate-300 flex-shrink-0">
+                [{node.shortcut}]
+              </kbd>
             </div>
           )}
         </button>
