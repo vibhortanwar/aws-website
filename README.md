@@ -91,3 +91,24 @@ Open [http://localhost:3000](http://localhost:3000) to view the console interfac
 - **LinkedIn**: [AWS Cloud Clubs at GGSIPU](https://www.linkedin.com/company/aws-cloud-clubs-at-ggsipu/)
 - **Instagram**: [@awscloudclubggsipu](https://www.instagram.com/awscloudclubggsipu/)
 - **Meetup**: [AWS Cloud Club at GGSIPU](https://www.meetup.com/aws-cloud-club-at-ggsipu/)
+
+---
+
+## ⌨️ Console Shortcuts & CloudShell Commands
+
+### Keyboard Navigation
+
+- `1` - `7`: Direct numeric jumps across Console service modules (Overview, EC2 Compute, EventBridge, S3, CloudWatch, IAM, Deploy)
+- `⌘ + K` or `Option + S`: Open global AWS Command Palette & search bar
+- `Esc`: Close open modal drawers, menus, and overlays
+
+### Built-in CloudShell Commands
+
+- `help`: Display all available AWS Cloud operations
+- `teams` / `ec2`: Inspect technical domain clusters and leads
+- `events`: Browse hackathons, workshops, and event stream
+- `stats` / `cloudwatch`: Real-time community impact telemetry
+- `uptime`: Check campus regional cluster health status
+- `join` / `deploy`: Quick access to official WhatsApp & Meetup channels
+- `mode [station|topology|stream]`: Toggle console visual presentation mode
+- `clear` / `cls`: Reset terminal screen buffer
