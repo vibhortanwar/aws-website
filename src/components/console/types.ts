@@ -112,3 +112,17 @@ export const SERVICE_NODES: ServiceNode[] = [
     color: '#E09F67', // pastel peach
   },
 ];
+
+/**
+ * Utility helper to retrieve region metadata by identifier.
+ */
+export function getRegionById(id: string): RegionInfo {
+  return AWS_REGIONS.find((r) => r.id === id) || AWS_REGIONS[0];
+}
+
+/**
+ * Utility helper to retrieve service node metadata by identifier.
+ */
+export function getServiceById(id: ServiceId): ServiceNode {
+  return SERVICE_NODES.find((s) => s.id === id) || SERVICE_NODES[0];
+}

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { ViewMode, ServiceId, SERVICE_NODES } from './types';
+import { ViewMode, ServiceId, SERVICE_NODES, getServiceById } from './types';
 import ConsoleHeader from './ConsoleHeader';
 import ServiceRail from './ServiceRail';
 import CloudShellDrawer from './CloudShellDrawer';
@@ -40,7 +40,7 @@ export default function ConsoleLayout() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // Sync active service title
-  const currentServiceNode = SERVICE_NODES.find((s) => s.id === activeService) || SERVICE_NODES[0];
+  const currentServiceNode = getServiceById(activeService);
 
   const handleSelectService = (id: ServiceId) => {
     setActiveService(id);
